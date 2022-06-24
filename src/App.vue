@@ -1,26 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <ul>
+    <li>Сверстать инпут</li>
+    <li>сделать так, чтобы при открытии страницы у инпута был активный фокус</li>
+  </ul>
+  <input type="text" ref="myInput" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import {ref, onMounted} from 'vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  setup() {
+    const myInput = ref(null)
+
+    onMounted(() => {
+      myInput.value.focus()
+    })
+
+    return {
+      myInput
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
